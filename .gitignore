@@ -1,3 +1,8 @@
+# Kaggle API credentials and cache
+.kaggle/
+kaggle.json
+data_cache/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

@@ -61,21 +61,30 @@ financial-data-analytics/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+├── KAGGLE_SETUP_GUIDE.md               # Kaggle integration setup guide
+│
+├── utils/
+│   ├── __init__.py
+│   └── kaggle_data_fetcher.py           # Kaggle data integration utility
 │
 ├── data/
-│   ├── transactions.csv                    # PaySim transaction dataset
-│   ├── default of credit card clients.xls # Credit card default dataset
+│   ├── transactions.csv                    # PaySim transaction dataset (fallback)
+│   ├── default of credit card clients.xls # Credit card default dataset (fallback)
 │   └── transactions_cleaned.csv           # Processed data
+│
+├── data_cache/                             # Auto-created Kaggle data cache
+│   ├── PS_20174392719_1491204439457_log.csv
+│   └── credit_risk_dataset.csv
 │
 ├── notebooks/
 │   ├── transaction_data_eda.py            # Original EDA script
-│   └── comprehensive_eda.py               # Enhanced EDA analysis
+│   └── comprehensive_eda.py               # Enhanced EDA with Kaggle integration
 │
 ├── sql/
 │   └── financial_analytics_queries.sql    # Complete SQL query library
 │
 ├── streamlit_app/
-│   ├── app.py                             # Main Streamlit application
+│   ├── app.py                             # Main Streamlit app with Kaggle integration
 │   ├── DEPLOYMENT_GUIDE.md               # Deployment instructions
 │   └── .streamlit/
 │       └── config.toml                    # Streamlit configuration
@@ -111,27 +120,46 @@ cd financial-data-analytics
 pip install -r requirements.txt
 ```
 
-### 3. Run EDA Analysis
+### 3. Setup Kaggle API (Optional but Recommended)
+
+For real financial datasets from Kaggle:
+
+```bash
+# Get your API token from https://www.kaggle.com/settings
+# Place kaggle.json in ~/.kaggle/ (Mac/Linux) or C:\Users\<username>\.kaggle\ (Windows)
+```
+
+📖 **Detailed setup guide**: See [KAGGLE_SETUP_GUIDE.md](KAGGLE_SETUP_GUIDE.md)
+
+### 4. Run EDA Analysis
 
 ```bash
 cd notebooks
 python comprehensive_eda.py
 ```
 
-### 4. Launch Interactive Dashboard
+### 5. Launch Interactive Dashboard
 
 ```bash
 cd streamlit_app
 streamlit run app.py
 ```
 
-### 5. Access Dashboard
+### 6. Access Dashboard
 
 Open your browser and go to `http://localhost:8501`
 
 ---
 
 ## ✨ Features
+
+### 🌐 **Kaggle Data Integration**
+
+- **Automatic dataset fetching** from Kaggle's financial datasets
+- **Real-time data access** to PaySim transactions, credit risk, and fraud datasets
+- **Intelligent fallback system** (Kaggle → Local files → Sample data)
+- **Built-in caching** for faster subsequent runs
+- **Multiple dataset support** with easy switching
 
 ### 🔍 **Exploratory Data Analysis**
 
