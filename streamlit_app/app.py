@@ -867,3 +867,8 @@ def show_insights():
 
 if __name__ == "__main__":
     main()
+
+
+#     to run the app
+# cd "C:/Users/swata/skill/projects/Data Analytics/Financial Data Analytics/financial-data-analytics/streamlit_app"
+# python -m streamlit run app.py
