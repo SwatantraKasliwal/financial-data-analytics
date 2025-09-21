@@ -64,7 +64,7 @@ This project provides a complete financial analytics solution with:
 
 - **PaySim Transaction Data**: Mobile money simulator dataset from Kaggle
 
-- **UCI Credit Card Dataset**: Default prediction dataset from UCI ML Repository**🌐 Interactive Dashboard:** [View Live Demo]((https://financial-data-analyticsgit-dvxdjnabbtar6ntoacddbu.streamlit.app/)) _(Deploy using instructions below)_
+- **UCI Credit Card Dataset**: Default prediction dataset from UCI ML Repository**🌐 Interactive Dashboard:** [View Live Demo](https://financial-data-analyticsgit-dvxdjnabbtar6ntoacddbu.streamlit.app/) _(Deploy using instructions below)_
 
 - **Fallback Sample Data**: Synthetic data for testing and development
 
