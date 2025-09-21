@@ -2,9 +2,7 @@
 
 
 
-A comprehensive financial data analytics project featuring interactive Streamlit dashboard, exploratory data analysis, SQL query capabilities, and advanced fraud detection insights. This project demonstrates end-to-end financial data science workflows using real-world datasets.[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org)
-
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
+A comprehensive financial data analytics project featuring interactive Streamlit dashboard, exploratory data analysis, SQL query capabilities, and advanced fraud detection insights. This project demonstrates end-to-end financial data science workflows using real-world datasets.
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-Latest-red) ![License](https://img.shields.io/badge/License-MIT-yellow)[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow.svg)](https://powerbi.microsoft.com)
 
