@@ -6,7 +6,7 @@ A comprehensive financial data analytics project featuring interactive Streamlit
 
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
 
-![Dashboard Preview]([https://img.shields.io/badge/Dashboard-Live-brightgreen][https://financial-data-analyticsgit-dvxdjnabbtar6ntoacddbu.streamlit.app/]) ![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-Latest-red) ![License](https://img.shields.io/badge/License-MIT-yellow)[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow.svg)](https://powerbi.microsoft.com)
+![Dashboard Preview]([https://img.shields.io/badge/Dashboard-Live-brightgreen]) ![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-Latest-red) ![License](https://img.shields.io/badge/License-MIT-yellow)[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow.svg)](https://powerbi.microsoft.com)
 
 [![SQL](https://img.shields.io/badge/SQL-Advanced-green.svg)](https://en.wikipedia.org/wiki/SQL)
 
