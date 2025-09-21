@@ -2,6 +2,12 @@
 .kaggle/
 kaggle.json
 data_cache/
+processed_data/
+
+# Temporary files
+*.tmp
+*.bak
+nul
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
