@@ -1,10 +1,8 @@
 # 💰 Financial Data Analytics Dashboard# Financial Data Analytics Project
 
-A comprehensive financial data analytics project featuring interactive Streamlit dashboard, exploratory data analysis, SQL query capabilities, and advanced fraud detection insights. This project demonstrates end-to-end financial data science workflows using real-world datasets.[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org)
+A comprehensive financial data analytics project featuring interactive Streamlit dashboard, exploratory data analysis, SQL query capabilities, and advanced fraud detection insights. This project demonstrates end-to-end financial data science workflows using real-world datasets.
 
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
-
-![Dashboard Preview](https://img.shields.io/badge/Dashboard-Live-brightgreen) ![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-Latest-red) ![License](https://img.shields.io/badge/License-MIT-yellow)[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow.svg)](https://powerbi.microsoft.com)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-Latest-red) ![License](https://img.shields.io/badge/License-MIT-yellow)[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow.svg)](https://powerbi.microsoft.com)
 
 [![SQL](https://img.shields.io/badge/SQL-Advanced-green.svg)](https://en.wikipedia.org/wiki/SQL)
 
@@ -60,7 +58,7 @@ This project provides a complete financial analytics solution with:
 
 - **PaySim Transaction Data**: Mobile money simulator dataset from Kaggle
 
-- **UCI Credit Card Dataset**: Default prediction dataset from UCI ML Repository**🌐 Interactive Dashboard:** [View Live Demo](https://financial-analytics-dashboard.streamlit.app) _(Deploy using instructions below)_
+- **UCI Credit Card Dataset**: Default prediction dataset from UCI ML Repository**🌐 Interactive Dashboard:** [View Live Demo](https://financial-data-analyticsgit-dvxdjnabbtar6ntoacddbu.streamlit.app/) _(Deploy using instructions below)_
 
 - **Fallback Sample Data**: Synthetic data for testing and development
 
