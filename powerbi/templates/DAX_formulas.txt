@@ -1,0 +1,273 @@
+/* 
+DAX Formulas for Financial Analytics Dashboard
+Copy and paste these formulas into Power BI Desktop
+*/
+
+/* ==== CALCULATED COLUMNS ==== */
+
+// Risk Category
+Risk_Category = 
+IF(credit_data_processed[default_probability] > 0.7, "High Risk",
+   IF(credit_data_processed[default_probability] > 0.3, "Medium Risk", "Low Risk"))
+
+// Transaction Amount Buckets
+Amount_Bucket = 
+IF(transactions_processed[amount] > 10000, "High Value",
+   IF(transactions_processed[amount] > 1000, "Medium Value", "Low Value"))
+
+// Month-Year for Time Analysis
+Month_Year = FORMAT(transactions_processed[transaction_date], "MMM YYYY")
+
+// Quarter-Year
+Quarter_Year = "Q" & QUARTER(transactions_processed[transaction_date]) & " " & YEAR(transactions_processed[transaction_date])
+
+// Time of Day Category
+Time_Category = 
+SWITCH(
+    TRUE(),
+    transactions_processed[hour_of_day] >= 0 && transactions_processed[hour_of_day] < 6, "Night",
+    transactions_processed[hour_of_day] >= 6 && transactions_processed[hour_of_day] < 12, "Morning",
+    transactions_processed[hour_of_day] >= 12 && transactions_processed[hour_of_day] < 18, "Afternoon",
+    "Evening"
+)
+
+// Weekend Flag
+Is_Weekend = IF(WEEKDAY(transactions_processed[transaction_date], 2) > 5, "Weekend", "Weekday")
+
+// Credit Utilization Category
+Utilization_Category = 
+SWITCH(
+    TRUE(),
+    credit_data_processed[utilization_rate] <= 0.3, "Low Utilization",
+    credit_data_processed[utilization_rate] <= 0.7, "Medium Utilization",
+    credit_data_processed[utilization_rate] <= 1.0, "High Utilization",
+    "Over Limit"
+)
+
+/* ==== MEASURES ==== */
+
+// Total Transaction Amount
+Total_Amount = SUM(transactions_processed[amount])
+
+// Average Transaction Value
+Avg_Transaction = AVERAGE(transactions_processed[amount])
+
+// Total Transactions
+Total_Transactions = COUNT(transactions_processed[transaction_id])
+
+// Unique Customers
+Unique_Customers = DISTINCTCOUNT(transactions_processed[customer_id])
+
+// Fraud Rate
+Fraud_Rate = 
+DIVIDE(
+    COUNTROWS(FILTER(transactions_processed, transactions_processed[is_fraud] = 1)),
+    COUNTROWS(transactions_processed)
+) * 100
+
+// Fraud Amount
+Fraud_Amount = 
+CALCULATE(
+    SUM(transactions_processed[amount]),
+    transactions_processed[is_fraud] = 1
+)
+
+// Fraud Loss Percentage
+Fraud_Loss_Percentage = 
+DIVIDE([Fraud_Amount], [Total_Amount]) * 100
+
+// Monthly Growth Rate
+Monthly_Growth = 
+VAR CurrentMonth = [Total_Amount]
+VAR PreviousMonth = 
+    CALCULATE(
+        [Total_Amount],
+        DATEADD(transactions_processed[transaction_date], -1, MONTH)
+    )
+RETURN 
+DIVIDE(CurrentMonth - PreviousMonth, PreviousMonth) * 100
+
+// Year-over-Year Growth
+YoY_Growth = 
+VAR CurrentYear = [Total_Amount]
+VAR PreviousYear = 
+    CALCULATE(
+        [Total_Amount],
+        DATEADD(transactions_processed[transaction_date], -1, YEAR)
+    )
+RETURN 
+DIVIDE(CurrentYear - PreviousYear, PreviousYear) * 100
+
+// Average Daily Transactions
+Avg_Daily_Transactions = 
+DIVIDE(
+    [Total_Transactions],
+    DISTINCTCOUNT(transactions_processed[transaction_date].[Date])
+)
+
+// High Risk Customers
+High_Risk_Customers = 
+CALCULATE(
+    DISTINCTCOUNT(credit_data_processed[customer_id]),
+    credit_data_processed[risk_category] = "High Risk"
+)
+
+// Total Credit Exposure
+Total_Credit_Exposure = SUM(credit_data_processed[limit_bal])
+
+// Average Credit Utilization
+Avg_Credit_Utilization = AVERAGE(credit_data_processed[utilization_rate]) * 100
+
+// Default Rate
+Default_Rate = 
+DIVIDE(
+    COUNTROWS(FILTER(credit_data_processed, credit_data_processed[default_next_month] = 1)),
+    COUNTROWS(credit_data_processed)
+) * 100
+
+// Weekend Transaction Percentage
+Weekend_Transaction_Pct = 
+DIVIDE(
+    CALCULATE([Total_Transactions], transactions_processed[is_weekend] = TRUE),
+    [Total_Transactions]
+) * 100
+
+// Large Transaction Count
+Large_Transaction_Count = 
+CALCULATE(
+    [Total_Transactions],
+    transactions_processed[amount] > 10000
+)
+
+// Customer Lifetime Value (simplified)
+Customer_LTV = 
+DIVIDE(
+    [Total_Amount],
+    [Unique_Customers]
+)
+
+// Previous Month Amount
+Previous_Month_Amount = 
+CALCULATE(
+    [Total_Amount],
+    PREVIOUSMONTH(transactions_processed[transaction_date])
+)
+
+// Running Total
+Running_Total = 
+CALCULATE(
+    [Total_Amount],
+    FILTER(
+        ALLSELECTED(transactions_processed[transaction_date]),
+        transactions_processed[transaction_date] <= MAX(transactions_processed[transaction_date])
+    )
+)
+
+// Top 10% Customer Flag
+Top_Customer_Flag = 
+IF(
+    RANKX(
+        ALL(transactions_processed[customer_id]),
+        CALCULATE([Total_Amount])
+    ) <= COUNTROWS(ALL(transactions_processed[customer_id])) * 0.1,
+    "Top 10%",
+    "Others"
+)
+
+// Fraud Detection Accuracy (if you have model predictions)
+// Fraud_Detection_Accuracy = 
+// VAR TruePositives = COUNTROWS(FILTER(transactions_processed, transactions_processed[is_fraud] = 1 && transactions_processed[predicted_fraud] = 1))
+// VAR TrueNegatives = COUNTROWS(FILTER(transactions_processed, transactions_processed[is_fraud] = 0 && transactions_processed[predicted_fraud] = 0))
+// VAR TotalRecords = COUNTROWS(transactions_processed)
+// RETURN DIVIDE(TruePositives + TrueNegatives, TotalRecords) * 100
+
+// Risk Score Distribution
+Risk_Score_Avg = AVERAGE(credit_data_processed[default_probability]) * 100
+
+// Active Customers (transacted in last 30 days)
+Active_Customers_30d = 
+CALCULATE(
+    DISTINCTCOUNT(transactions_processed[customer_id]),
+    transactions_processed[transaction_date] >= TODAY() - 30
+)
+
+// Transaction Velocity (transactions per day)
+Transaction_Velocity = 
+DIVIDE(
+    [Total_Transactions],
+    DATEDIFF(
+        MIN(transactions_processed[transaction_date]),
+        MAX(transactions_processed[transaction_date]),
+        DAY
+    ) + 1
+)
+
+/* ==== TIME INTELLIGENCE MEASURES ==== */
+
+// Same Period Last Year
+SPLY_Amount = 
+CALCULATE(
+    [Total_Amount],
+    SAMEPERIODLASTYEAR(transactions_processed[transaction_date])
+)
+
+// Quarter to Date
+QTD_Amount = 
+TOTALQTD([Total_Amount], transactions_processed[transaction_date])
+
+// Year to Date
+YTD_Amount = 
+TOTALYTD([Total_Amount], transactions_processed[transaction_date])
+
+// Moving Average (7 days)
+Moving_Avg_7d = 
+AVERAGEX(
+    DATESINPERIOD(
+        transactions_processed[transaction_date],
+        LASTDATE(transactions_processed[transaction_date]),
+        -7,
+        DAY
+    ),
+    [Total_Amount]
+)
+
+/* ==== RANKING MEASURES ==== */
+
+// Customer Rank by Volume
+Customer_Rank = 
+RANKX(
+    ALL(transactions_processed[customer_id]),
+    [Total_Amount],
+    ,
+    DESC
+)
+
+// Transaction Type Rank
+Transaction_Type_Rank = 
+RANKX(
+    ALL(transactions_processed[transaction_type]),
+    [Total_Amount],
+    ,
+    DESC
+)
+
+/* ==== CONDITIONAL FORMATTING MEASURES ==== */
+
+// Amount Color (for conditional formatting)
+Amount_Color = 
+SWITCH(
+    TRUE(),
+    [Total_Amount] >= 1000000, "#FF0000",  // Red for very high
+    [Total_Amount] >= 500000, "#FFA500",   // Orange for high
+    [Total_Amount] >= 100000, "#FFFF00",   // Yellow for medium
+    "#00FF00"                              // Green for low
+)
+
+// Risk Color
+Risk_Color = 
+SWITCH(
+    TRUE(),
+    [Default_Rate] >= 50, "#FF0000",       // Red for high risk
+    [Default_Rate] >= 25, "#FFA500",       // Orange for medium risk
+    "#00FF00"                              // Green for low risk
+)

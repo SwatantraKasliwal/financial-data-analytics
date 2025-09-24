@@ -1,0 +1,130 @@
+{
+  "powerbi_color_schemes": {
+    "financial_professional": {
+      "name": "Financial Professional",
+      "description": "Professional color scheme for financial dashboards",
+      "colors": {
+        "primary": "#1f4e79",
+        "secondary": "#ff6b35",
+        "success": "#28a745",
+        "warning": "#ffc107",
+        "danger": "#dc3545",
+        "info": "#17a2b8",
+        "light": "#f8f9fa",
+        "dark": "#343a40",
+        "muted": "#6c757d"
+      },
+      "chart_colors": [
+        "#1f4e79",
+        "#ff6b35",
+        "#28a745",
+        "#ffc107",
+        "#dc3545",
+        "#17a2b8",
+        "#6f42c1",
+        "#fd7e14"
+      ]
+    },
+    "corporate_blue": {
+      "name": "Corporate Blue",
+      "description": "Blue-based corporate color scheme",
+      "colors": {
+        "primary": "#003f7f",
+        "secondary": "#0066cc",
+        "accent": "#4da6ff",
+        "neutral": "#f0f4f8",
+        "text": "#2c3e50"
+      },
+      "chart_colors": [
+        "#003f7f",
+        "#0066cc",
+        "#4da6ff",
+        "#80bfff",
+        "#b3d9ff",
+        "#e6f3ff"
+      ]
+    },
+    "risk_assessment": {
+      "name": "Risk Assessment",
+      "description": "Color scheme optimized for risk visualization",
+      "colors": {
+        "low_risk": "#28a745",
+        "medium_risk": "#ffc107",
+        "high_risk": "#dc3545",
+        "background": "#ffffff",
+        "border": "#dee2e6"
+      },
+      "gradient": {
+        "risk_gradient": ["#28a745", "#a3d977", "#fff59d", "#ffab40", "#dc3545"]
+      }
+    },
+    "fraud_detection": {
+      "name": "Fraud Detection",
+      "description": "High-contrast colors for fraud analysis",
+      "colors": {
+        "legitimate": "#2e7d32",
+        "suspicious": "#f57c00",
+        "fraud": "#c62828",
+        "alert": "#ff1744",
+        "background": "#fafafa"
+      },
+      "chart_colors": ["#2e7d32", "#c62828", "#f57c00", "#1976d2", "#7b1fa2"]
+    }
+  },
+  "usage_instructions": {
+    "how_to_apply": [
+      "1. Open Power BI Desktop",
+      "2. Go to Format pane for any visual",
+      "3. Expand Data colors section",
+      "4. Click on color selector",
+      "5. Enter hex color code from schemes above",
+      "6. Apply to multiple visuals for consistency"
+    ],
+    "best_practices": [
+      "Use primary color for main data series",
+      "Use secondary color for comparisons",
+      "Apply success/danger colors for positive/negative indicators",
+      "Maintain color consistency across all dashboard pages",
+      "Test colors for accessibility and readability"
+    ]
+  },
+  "accessibility": {
+    "guidelines": [
+      "Ensure sufficient contrast ratio (4.5:1 minimum)",
+      "Avoid relying solely on color to convey information",
+      "Provide alternative indicators (patterns, shapes)",
+      "Test with colorblind simulators",
+      "Use distinct colors that are distinguishable"
+    ],
+    "colorblind_friendly": {
+      "palette": [
+        "#1f77b4",
+        "#ff7f0e",
+        "#2ca02c",
+        "#d62728",
+        "#9467bd",
+        "#8c564b",
+        "#e377c2",
+        "#7f7f7f"
+      ]
+    }
+  },
+  "theme_settings": {
+    "report_theme": {
+      "name": "Financial Analytics Theme",
+      "dataColors": [
+        "#1f4e79",
+        "#ff6b35",
+        "#28a745",
+        "#ffc107",
+        "#dc3545",
+        "#17a2b8",
+        "#6f42c1",
+        "#fd7e14"
+      ],
+      "background": "#ffffff",
+      "foreground": "#000000",
+      "tableAccent": "#1f4e79"
+    }
+  }
+}

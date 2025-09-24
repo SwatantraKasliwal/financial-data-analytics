@@ -18,6 +18,19 @@ from datetime import datetime, timedelta
 
 warnings.filterwarnings('ignore')
 
+# Configure Streamlit page
+st.set_page_config(
+    page_title="Financial Analytics Dashboard",
+    page_icon="💰",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Health check endpoint for Streamlit Cloud
+def health_check():
+    """Simple health check function"""
+    return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+
 # Add utils directory to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -315,7 +328,7 @@ def show_overview(df_trans, df_credit):
         # Transaction type distribution
         fig = px.pie(df_trans, names='type', title='Transaction Type Distribution',
                     color_discrete_sequence=px.colors.qualitative.Set3)
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
     
     with col2:
         st.subheader("💳 Credit Data Summary")
@@ -350,7 +363,7 @@ def show_overview(df_trans, df_credit):
             fig = px.bar(default_by_age, x='age_group', y='default', 
                         title='Default Rate by Age Group',
                         color='default', color_continuous_scale='Reds')
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
         else:
             st.warning("⚠️ Credit data columns not available. Please check data loading.")
 
@@ -400,7 +413,7 @@ def show_transaction_analysis(df_trans):
                           title="Transaction Amount Distribution",
                           color_discrete_sequence=['#1f77b4'])
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
         
         # Fraud by type
         fraud_analysis = filtered_df.groupby('type').agg({
@@ -412,7 +425,7 @@ def show_transaction_analysis(df_trans):
         fig = px.bar(fraud_analysis, x='type', y='Fraud_Rate',
                     title='Fraud Rate by Transaction Type',
                     color='Fraud_Rate', color_continuous_scale='Reds')
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
     
     with col2:
         # Hourly patterns
@@ -425,13 +438,13 @@ def show_transaction_analysis(df_trans):
         
         fig = px.line(hourly_patterns, x='hour', y='Count',
                      title='Transaction Count by Hour of Day')
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
         
         # Top destination accounts
         top_destinations = filtered_df['namedest'].value_counts().head(10)
         fig = px.bar(x=top_destinations.values, y=top_destinations.index,
                     orientation='h', title='Top 10 Destination Accounts')
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
 
 def show_credit_analysis(df_credit):
     """Detailed credit analysis"""
@@ -508,7 +521,7 @@ def show_credit_analysis(df_credit):
             fig = px.bar(default_by_education, x='education_label', y='default',
                         title='Default Rate by Education Level',
                         color='default', color_continuous_scale='Reds')
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
         else:
             st.info("Education data not available for detailed analysis")
         
@@ -516,7 +529,7 @@ def show_credit_analysis(df_credit):
         fig = px.histogram(filtered_df, x='age', nbins=30, 
                           title='Age Distribution of Customers',
                           color_discrete_sequence=['#2ca02c'])
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
     
     with col2:
         # Credit limit vs default
@@ -524,7 +537,7 @@ def show_credit_analysis(df_credit):
                         x='limit_bal', y='age', color='default',
                         title='Credit Limit vs Age (colored by default)',
                         opacity=0.6)
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
         
         # Marriage status analysis
         marriage_labels = {1: 'Married', 2: 'Single', 3: 'Others'}
@@ -533,7 +546,7 @@ def show_credit_analysis(df_credit):
         
         fig = px.pie(marriage_analysis, values='default', names='marriage_label',
                     title='Default Rate by Marriage Status')
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
 
 def show_sql_interface(df_trans, df_credit):
     """Interactive SQL query interface"""
@@ -571,7 +584,7 @@ def show_sql_interface(df_trans, df_credit):
                 st.error(f"Query Error: {error}")
             else:
                 st.success("Query executed successfully!")
-                st.dataframe(result, width="stretch")
+                st.dataframe(result, use_container_width=True)
     
     with tab2:
         st.subheader("📊 Pre-built Transaction Queries")
@@ -616,7 +629,7 @@ def show_sql_interface(df_trans, df_credit):
             if error:
                 st.error(f"Query Error: {error}")
             else:
-                st.dataframe(result, width="stretch")
+                st.dataframe(result, use_container_width=True)
     
     with tab3:
         st.subheader("💳 Pre-built Credit Queries")
@@ -659,7 +672,7 @@ def show_sql_interface(df_trans, df_credit):
             if error:
                 st.error(f"Query Error: {error}")
             else:
-                st.dataframe(result, width="stretch")
+                st.dataframe(result, use_container_width=True)
 
 def show_advanced_analytics(df_trans, df_credit):
     """Advanced analytics and insights"""
@@ -682,7 +695,7 @@ def show_advanced_analytics(df_trans, df_credit):
         
         fig = px.bar(feature_df, x='importance', y='feature', orientation='h',
                     title='Feature Importance for Fraud Detection')
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
         
         # Model performance metrics
         st.markdown("""
@@ -715,7 +728,7 @@ def show_advanced_analytics(df_trans, df_credit):
             fig = px.histogram(risk_df, x='risk_score', color='default',
                               title='Risk Score Distribution by Default Status',
                               marginal='box')
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
         else:
             st.warning("Default data not available for risk analysis")
         
@@ -815,4 +828,15 @@ def show_insights():
     """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        st.error(f"Application Error: {str(e)}")
+        st.error("Please refresh the page or contact support if the issue persists.")
+        
+        # Display error details in expander for debugging
+        with st.expander("🔧 Debug Information", expanded=False):
+            st.code(f"Error Type: {type(e).__name__}")
+            st.code(f"Error Message: {str(e)}")
+            import traceback
+            st.code(traceback.format_exc())

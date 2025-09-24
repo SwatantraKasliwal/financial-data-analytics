@@ -1,7 +1,5 @@
 # 💰 Financial Data Analytics Dashboard# Financial Data Analytics Project
 
-
-
 A comprehensive financial data analytics project featuring interactive Streamlit dashboard, exploratory data analysis, SQL query capabilities, and advanced fraud detection insights. This project demonstrates end-to-end financial data science workflows using real-world datasets.[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org)
 
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
@@ -42,23 +40,21 @@ This project provides a complete financial analytics solution with:
 
 - Interactive visualizations with Plotly
 
-- Multi-tab interface for different analytical perspectives✅ **Cleaned dataset(s)**  
+- Multi-tab interface for different analytical perspectives✅ **Cleaned dataset(s)**
 
-- SQL query interface for custom data exploration✅ **EDA notebook with comprehensive analysis**  
+- SQL query interface for custom data exploration✅ **EDA notebook with comprehensive analysis**
 
-✅ **SQL query library demonstrating advanced skills**  
+✅ **SQL query library demonstrating advanced skills**
 
-### 🎯 Advanced Analytics✅ **Interactive Streamlit dashboard** (hosted)  
+### 🎯 Advanced Analytics✅ **Interactive Streamlit dashboard** (hosted)
 
-- **Fraud Detection**: Pattern recognition and anomaly detection✅ **Power BI dashboard guide with screenshots**  
+- **Fraud Detection**: Pattern recognition and anomaly detection✅ **Power BI dashboard guide with screenshots**
 
 - **Risk Scoring**: Credit default prediction models✅ **Repository documentation with insights & recommendations**
 
 - **Trend Analysis**: Time-series insights and forecasting
 
 - **Correlation Analysis**: Feature relationships and dependencies---
-
-
 
 ### 🗄️ Data Sources## 🚀 Live Demo
 
@@ -104,7 +100,7 @@ This project provides a complete financial analytics solution with:
 
 1. **Clone the repository**- [License](#license)
 
-   ```bash
+   ````bash
 
    git clone https://github.com/SwatantraKasliwal/financial-data-analytics.git---
 
@@ -112,39 +108,41 @@ This project provides a complete financial analytics solution with:
 
    ```## 📁 Project Structure
 
-
+   ````
 
 2. **Install dependencies**```
 
-   ```bashfinancial-data-analytics/
+   ````bashfinancial-data-analytics/
 
    pip install -r requirements.txt├── README.md
 
    ```├── requirements.txt
+   ````
 
 ├── .gitignore
 
-3. **Run the Streamlit dashboard**├── KAGGLE_SETUP_GUIDE.md               # Kaggle integration setup guide
+3. **Run the Streamlit dashboard**├── KAGGLE_SETUP_GUIDE.md # Kaggle integration setup guide
 
-   ```bash│
+   ````bash│
 
    streamlit run streamlit_app/app.py├── utils/
 
    ```│   ├── __init__.py
+   ````
 
-│   └── kaggle_data_fetcher.py           # Kaggle data integration utility
+│ └── kaggle_data_fetcher.py # Kaggle data integration utility
 
 4. **Access the dashboard**│
 
    Open your browser and navigate to `http://localhost:8501`├── data/
 
-│   ├── transactions.csv                    # PaySim transaction dataset (fallback)
+│ ├── transactions.csv # PaySim transaction dataset (fallback)
 
-### Alternative: Run EDA Notebook│   ├── default of credit card clients.xls # Credit card default dataset (fallback)
+### Alternative: Run EDA Notebook│ ├── default of credit card clients.xls # Credit card default dataset (fallback)
 
-│   └── transactions_cleaned.csv           # Processed data
+│ └── transactions_cleaned.csv # Processed data
 
-```bash│
+````bash│
 
 cd notebooks├── data_cache/                             # Auto-created Kaggle data cache
 
@@ -204,7 +202,7 @@ financial-data-analytics/│
 
 - **NumPy**: Numerical computing        └── 04_advanced_analytics.png
 
-```
+````
 
 ### Data Science Libraries
 
@@ -213,8 +211,6 @@ financial-data-analytics/│
 - **SciPy**: Statistical computing
 
 - **Matplotlib/Seaborn**: Static data visualization## ⚡ Quick Start
-
-
 
 ### Data Sources APIs### 1. Clone Repository
 
@@ -226,7 +222,7 @@ git clone https://github.com/SwatantraKasliwal/financial-data-analytics.git
 
 ## 📈 Dashboard Featurescd financial-data-analytics
 
-```
+````
 
 ### 1. Transaction Analysis Tab
 
@@ -238,7 +234,7 @@ git clone https://github.com/SwatantraKasliwal/financial-data-analytics.git
 
 - **Time Series**: Transaction volume and patterns over timepip install -r requirements.txt
 
-```
+````
 
 ### 2. Credit Analysis Tab
 
@@ -250,7 +246,7 @@ git clone https://github.com/SwatantraKasliwal/financial-data-analytics.git
 
 - **Behavioral Insights**: Payment history and credit utilization
 
-```bash
+````bash
 
 ### 3. SQL Interface Tab# Get your API token from https://www.kaggle.com/settings
 
@@ -302,7 +298,7 @@ DASHBOARD_TITLE="Financial Analytics Dashboard"
 
 DEFAULT_THEME="dark"---
 
-```
+````
 
 ## ✨ Features
 
@@ -310,9 +306,7 @@ DEFAULT_THEME="dark"---
 
 For full functionality, install optional packages:### 🌐 **Kaggle Data Integration**
 
-
-
-```bash- **Automatic dataset fetching** from Kaggle's financial datasets
+````bash- **Automatic dataset fetching** from Kaggle's financial datasets
 
 # Kaggle integration- **Real-time data access** to PaySim transactions, credit risk, and fraud datasets
 
@@ -420,7 +414,7 @@ pip install plotly>=5.0.0- Comprehensive transaction pattern analysis
 
    ```sql---
 
-   SELECT 
+   SELECT
 
        type,## 🎯 Analysis Highlights
 
@@ -576,7 +570,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 CMD ["streamlit", "run", "streamlit_app/app.py", "--server.port=8501", "--server.address=0.0.0.0"]```
 
-```
+````
 
 3. **Install dependencies**
 
@@ -600,13 +594,9 @@ We welcome contributions! Please follow these steps:pip install -r requirements.
 
 6. **Submit a pull request**```
 
-
-
 ### Development Setup---
 
-
-
-```bash## 🚀 Usage
+````bash## 🚀 Usage
 
 # Clone the repository
 
@@ -678,7 +668,7 @@ streamlit run app.py
 
 - [UCI Credit Card Dataset](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)# Or run individual queries in your preferred SQL environment
 
-```
+````
 
 ## 📄 License
 
@@ -702,7 +692,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Open Source Community**: For the invaluable tools and libraries-- Transaction volume by type
 
-SELECT type, COUNT(*) as count, SUM(amount) as volume
+SELECT type, COUNT(\*) as count, SUM(amount) as volume
 
 ## 📞 SupportFROM transactions
 
@@ -710,7 +700,7 @@ GROUP BY type
 
 Need help? Here are your options:ORDER BY volume DESC;
 
-```
+````
 
 - **📖 Documentation**: Check this README and inline code comments
 
@@ -777,25 +767,275 @@ WITH CustomerRisk AS (
 
 ## 📊 Power BI Dashboard
 
-### **Dashboard Pages**
+Transform your financial data into professional business intelligence dashboards with our comprehensive Power BI integration.
 
-1. **Executive Overview**: KPIs, trends, high-level metrics
-2. **Fraud Analysis**: Detailed fraud patterns and detection
-3. **Credit Risk**: Default analysis and risk scoring
-4. **Advanced Analytics**: Predictive insights and recommendations
+### 🎯 **Dashboard Overview**
 
-### **Key Features**
+Create stunning, interactive dashboards that provide real-time insights into financial performance, risk assessment, and fraud detection.
 
-- Interactive filters and drill-through
-- Mobile-responsive design
-- Real-time data refresh capabilities
-- AI-powered insights integration
+![Power BI Dashboard Preview](https://img.shields.io/badge/Power_BI-Professional_Dashboard-yellow?style=for-the-badge&logo=powerbi)
 
-### **Creation Guide**
+### 📋 **Dashboard Pages**
 
-Follow the comprehensive guide: [`powerbi/Power_BI_Dashboard_Guide.md`](powerbi/Power_BI_Dashboard_Guide.md)
+#### 1. **📈 Executive Summary**
+- **KPI Cards**: Total volume, fraud rate, active customers, avg transaction value
+- **Trend Analysis**: Monthly transaction volumes and growth rates
+- **Risk Overview**: High-level risk distribution and alerts
+- **Performance Metrics**: YoY growth, customer acquisition, retention rates
 
-**Sample Screenshots**: _Available in `images/powerbi/` folder_
+#### 2. **🔍 Transaction Analysis**
+- **Transaction Heatmap**: Patterns by hour and day of week
+- **Amount Distribution**: Histograms and box plots for transaction sizes
+- **Type Breakdown**: Analysis by payment, transfer, cash operations
+- **Geographic Insights**: Transaction distribution by location (if available)
+
+#### 3. **⚠️ Fraud Detection Dashboard**
+- **Real-time Alerts**: Suspicious transaction monitoring
+- **Fraud Patterns**: Analysis by transaction type, time, amount
+- **Detection Metrics**: Precision, recall, false positive rates
+- **Risk Scoring**: Visual risk assessment tools
+
+#### 4. **💳 Credit Risk Analysis**
+- **Credit Utilization**: Scatter plots of limit vs balance
+- **Default Prediction**: Risk scoring and probability distributions
+- **Customer Segmentation**: Age, education, payment behavior analysis
+- **Portfolio Health**: Overall credit exposure and risk metrics
+
+### ✨ **Key Features**
+
+- **🔄 Real-time Data Refresh**: Automatic data updates from Kaggle sources
+- **📱 Mobile Responsive**: Optimized layouts for all devices
+- **🎛️ Interactive Filters**: Dynamic slicers for date ranges, customer segments, transaction types
+- **🎯 Drill-through Capabilities**: Deep dive from summary to detailed views
+- **🔗 Cross-filtering**: Seamless interaction between visualizations
+- **📊 Advanced DAX**: Custom measures and calculated columns
+- **🎨 Professional Styling**: Corporate color schemes and branding
+- **📈 Time Intelligence**: YoY, QoQ, MoM analysis with trend indicators
+
+### 🚀 **Quick Start Guide**
+
+#### Step 1: Export Data for Power BI
+```bash
+# Run the data export utility
+python utils/export_for_powerbi.py
+````
+
+This creates optimized CSV files in `powerbi/data/`:
+
+- `transactions_processed.csv` - Clean transaction data with calculated fields
+- `credit_data_processed.csv` - Credit data with risk scores
+- `monthly_summary.csv` - Aggregated monthly trends
+- `customer_segments.csv` - RFM analysis results
+- `fraud_analysis.csv` - Fraud detection insights
+- `data_dictionary.csv` - Complete field descriptions
+
+#### Step 2: Power BI Desktop Setup
+
+1. **Download**: [Power BI Desktop](https://powerbi.microsoft.com/desktop/) (Free)
+2. **Install**: Run installer with admin privileges
+3. **Sign In**: Use Microsoft account for cloud features
+
+#### Step 3: Import Data
+
+1. **Get Data** → **Text/CSV**
+2. **Navigate** to `powerbi/data/` folder
+3. **Import** all CSV files
+4. **Configure** data types and relationships
+
+#### Step 4: Build Dashboard
+
+Follow our comprehensive guide: [`powerbi/POWER_BI_DASHBOARD_GUIDE.md`](powerbi/POWER_BI_DASHBOARD_GUIDE.md)
+
+### 📸 **Required Screenshots for Documentation**
+
+When following the guide, capture these key screenshots:
+
+#### Setup & Import (Screenshots 1-6)
+
+- Power BI Desktop start screen
+- Data import dialog and file selection
+- Data preview and type configuration
+- Transform Data window with applied steps
+
+#### Data Modeling (Screenshots 7-9)
+
+- Model view showing table relationships
+- DAX formula editor with calculated columns
+- Measure creation with sample formulas
+
+#### Visualization Creation (Screenshots 10-19)
+
+- Visualization pane with chart types
+- KPI card configuration and formatting
+- Line chart with time series data
+- Donut chart with categorical data
+- Cross-filtering demonstration
+- Mobile layout configuration
+
+#### Dashboard Layout (Screenshots 20-23)
+
+- Grid layout with multiple visualizations
+- Filter pane with configured slicers
+- Professional styling and color schemes
+- Final dashboard overview
+
+#### Publishing Process (Screenshots 24-27)
+
+- Publish to Power BI Service dialog
+- Power BI Service workspace view
+- Dashboard creation with pinned tiles
+- Final published dashboard URLs
+
+### 🎨 **Design System**
+
+#### Color Palette
+
+```
+Primary:   #1f4e79 (Dark Blue)
+Secondary: #ff6b35 (Orange)
+Success:   #28a745 (Green)
+Warning:   #ffc107 (Yellow)
+Danger:    #dc3545 (Red)
+Info:      #17a2b8 (Cyan)
+```
+
+#### Typography Standards
+
+- **Headers**: Segoe UI Bold, 16-18pt
+- **Body Text**: Segoe UI Regular, 10-12pt
+- **KPI Values**: Segoe UI Bold, 24-28pt
+- **Captions**: Segoe UI Light, 8-10pt
+
+### 🔧 **Templates & Resources**
+
+#### DAX Formulas
+
+Pre-built formulas available in [`powerbi/templates/DAX_formulas.txt`](powerbi/templates/DAX_formulas.txt):
+
+- **Fraud Rate**: `DIVIDE(COUNTROWS(FILTER(...)), COUNTROWS(...)) * 100`
+- **Monthly Growth**: `DIVIDE(CurrentMonth - PreviousMonth, PreviousMonth) * 100`
+- **Risk Categories**: `IF(default_probability > 0.7, "High Risk", ...)`
+- **Time Intelligence**: YTD, QTD, SPLY calculations
+
+#### Color Schemes
+
+Professional color configurations in [`powerbi/templates/color_schemes.json`](powerbi/templates/color_schemes.json):
+
+- Financial Professional theme
+- Risk Assessment palette
+- Fraud Detection high-contrast colors
+- Colorblind-friendly alternatives
+
+### 📊 **Sample Dashboard Metrics**
+
+#### Executive KPIs
+
+- **Transaction Volume**: $2.3M total processed
+- **Fraud Detection Rate**: 2.1% of transactions flagged
+- **Active Customers**: 4,847 unique customers
+- **Average Transaction**: $1,247 per transaction
+
+#### Performance Indicators
+
+- **Monthly Growth**: +12.3% vs previous month
+- **YoY Growth**: +34.7% vs same period last year
+- **Customer Retention**: 89.2% monthly retention rate
+- **Risk Distribution**: 15% High Risk, 35% Medium, 50% Low
+
+### 🔐 **Security & Governance**
+
+#### Row-Level Security (RLS)
+
+- Customer data isolation by region/department
+- Manager access controls for sensitive metrics
+- Audit trail for dashboard access and modifications
+
+#### Data Refresh Schedule
+
+- **Automatic Refresh**: Every 4 hours during business hours
+- **Manual Refresh**: On-demand via Power BI Service
+- **Data Gateway**: For on-premises data integration (if needed)
+
+### 📱 **Sharing & Collaboration**
+
+#### Power BI Service Deployment
+
+1. **Publish** from Power BI Desktop
+2. **Create App** for stakeholder distribution
+3. **Configure Permissions** for different user roles
+4. **Set Up Alerts** for critical metrics
+
+#### Export Options
+
+- **PowerPoint**: Automated report generation
+- **PDF**: Static reports for compliance
+- **Excel**: Raw data export for analysis
+- **Web Embed**: Integration in corporate portals
+
+### 📈 **Advanced Features**
+
+#### AI-Powered Insights
+
+- **Q&A Visual**: Natural language queries
+- **Key Influencers**: Automated insight discovery
+- **Decomposition Tree**: Hierarchical analysis
+- **Anomaly Detection**: Automated outlier identification
+
+#### Integration Capabilities
+
+- **Teams Integration**: Dashboards in Microsoft Teams
+- **SharePoint Embedding**: Portal integration
+- **Power Automate**: Automated workflows and alerts
+- **Power Apps**: Custom application integration
+
+### 🛠️ **Troubleshooting**
+
+#### Common Issues & Solutions
+
+**Data Import Problems**
+
+- ❌ CSV encoding issues → ✅ Use UTF-8 encoding
+- ❌ Date format errors → ✅ Standardize to YYYY-MM-DD
+- ❌ Large file sizes → ✅ Use data compression or aggregation
+
+**Performance Optimization**
+
+- ❌ Slow dashboard loading → ✅ Implement data aggregation tables
+- ❌ Memory issues → ✅ Optimize DAX calculations and reduce data volume
+- ❌ Refresh failures → ✅ Check data source connections and gateway status
+
+**Visualization Issues**
+
+- ❌ Charts not displaying → ✅ Verify field assignments and data types
+- ❌ Cross-filtering not working → ✅ Check table relationships in Model view
+- ❌ Incorrect calculations → ✅ Review DAX syntax and logic
+
+### 📚 **Learning Resources**
+
+#### Official Documentation
+
+- [Power BI Documentation](https://docs.microsoft.com/power-bi/)
+- [DAX Function Reference](https://docs.microsoft.com/dax/)
+- [Power BI Community](https://community.powerbi.com/)
+
+#### Video Tutorials
+
+- [Power BI YouTube Channel](https://www.youtube.com/user/mspowerbi)
+- [Guy in a Cube](https://www.youtube.com/channel/UCFp1vaKzpfvoGai0vE5VJ0w)
+- [SQLBI](https://www.sqlbi.com/tv/)
+
+### 📞 **Support**
+
+For technical support with Power BI implementation:
+
+1. **Review**: Complete guide in `powerbi/POWER_BI_DASHBOARD_GUIDE.md`
+2. **Check**: Troubleshooting section for common issues
+3. **Community**: Post questions in [Power BI Community](https://community.powerbi.com/)
+4. **Documentation**: Reference official Microsoft Power BI docs
+
+**Complete Guide**: [`powerbi/POWER_BI_DASHBOARD_GUIDE.md`](powerbi/POWER_BI_DASHBOARD_GUIDE.md)  
+**Templates**: Available in [`powerbi/templates/`](powerbi/templates/) folder  
+**Sample Data**: Generated via [`utils/export_for_powerbi.py`](utils/export_for_powerbi.py)
 
 ---
 
